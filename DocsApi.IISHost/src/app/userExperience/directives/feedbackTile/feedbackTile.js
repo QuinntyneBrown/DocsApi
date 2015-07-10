@@ -1,7 +1,7 @@
 var app;
 (function (app) {
-    var feedback;
-    (function (feedback) {
+    var userExperience;
+    (function (userExperience) {
         var FeedbackTile = (function () {
             function FeedbackTile() {
                 this.restrict = "E";
@@ -16,8 +16,8 @@ var app;
             };
             return FeedbackTile;
         })();
-        feedback.FeedbackTile = FeedbackTile;
+        userExperience.FeedbackTile = FeedbackTile;
         angular.module("app.userExperience").directive("userExperienceTile", [FeedbackTile.instance]);
-    })(feedback = app.userExperience || (app.userExperience = {}));
+    })(userExperience = app.userExperience || (app.userExperience = {}));
 })(app || (app = {}));
 //# sourceMappingURL=feedbackTile.js.map

@@ -1,7 +1,7 @@
 var app;
 (function (app) {
-    var feedback;
-    (function (feedback) {
+    var userExperience;
+    (function (userExperience) {
         "use strict";
         var FeedbackModalController = (function () {
             function FeedbackModalController($modalInstance, $rootScope, feedbackManager, feedbackService) {
@@ -52,8 +52,8 @@ var app;
             });
             return FeedbackModalController;
         })();
-        feedback.FeedbackModalController = FeedbackModalController;
+        userExperience.FeedbackModalController = FeedbackModalController;
         angular.module("app.userExperience").controller("userExperienceModalController", ["$modalInstance", "$rootScope", "userExperienceManager", "userExperienceService", FeedbackModalController]);
-    })(feedback = app.userExperience || (app.userExperience = {}));
+    })(userExperience = app.userExperience || (app.userExperience = {}));
 })(app || (app = {}));
 //# sourceMappingURL=feedbackModalController.js.map

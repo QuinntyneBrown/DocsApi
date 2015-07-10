@@ -1,9 +1,9 @@
 var app;
 (function (app) {
-    var feedback;
-    (function (feedback) {
+    var userExperience;
+    (function (userExperience) {
         describe("userExperienceTile", function () {
         });
-    })(feedback = app.userExperience || (app.userExperience = {}));
+    })(userExperience = app.userExperience || (app.userExperience = {}));
 })(app || (app = {}));
 //# sourceMappingURL=feedbackTile.spec.js.map

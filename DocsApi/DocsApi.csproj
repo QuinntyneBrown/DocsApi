@@ -30,8 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Common">
-      <HintPath>..\..\Common\Common\bin\Release\Common.dll</HintPath>
+    <Reference Include="Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Common.dll</HintPath>
     </Reference>
     <Reference Include="container">
       <HintPath>..\packages\container.1.1.1\lib\net40\container.dll</HintPath>
@@ -164,6 +165,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="lib\Common.dll" />
     <Content Include="Scripts\jquery-1.6.4-vsdoc.js" />
     <Content Include="Scripts\jquery-1.6.4.js" />
     <Content Include="Scripts\jquery-1.6.4.min.js" />
