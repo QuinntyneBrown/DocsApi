@@ -13,5 +13,7 @@ namespace DocsApi.Data
         }
 
         public IRepository<Doc> Docs { get; set; }
+
+        public IRepository<Folder> Folders { get; set; }
     }
 }

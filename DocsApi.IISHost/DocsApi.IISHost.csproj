@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -19,6 +20,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <TypeScriptToolsVersion>1.4</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -162,10 +164,155 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="gulpfile.config.js" />
+    <Content Include="gulpfile.js" />
     <Content Include="index.html" />
     <Content Include="packages.config" />
     <Content Include="commonConfiguration.config" />
     <Content Include="connectionStrings.config" />
+    <Content Include="specRunner.html" />
+    <Content Include="src\app\abstractDataTypes\abstractDataTypes.module.js.map" />
+    <Content Include="src\app\abstractDataTypes\controllers\paginatedListController.js.map" />
+    <Content Include="src\app\abstractDataTypes\services\linkedList.js.map" />
+    <Content Include="src\app\abstractDataTypes\services\list.js.map" />
+    <Content Include="src\app\abstractDataTypes\services\list.spec.js.map" />
+    <Content Include="src\app\abstractDataTypes\services\paginatedList.js.map" />
+    <Content Include="src\app\abstractDataTypes\services\paginatedList.spec.js.map" />
+    <Content Include="src\app\abstractDataTypes\services\pagniatedListView.js.map" />
+    <Content Include="src\app\abstractDataTypes\services\pagniatedListView.spec.js.map" />
+    <Content Include="src\app\abstractDataTypes\services\pipeAsync.js.map" />
+    <Content Include="src\app\abstractDataTypes\services\pipePrioritizedAsync.js.map" />
+    <Content Include="src\app\abstractDataTypes\services\queueAsync.js.map" />
+    <Content Include="src\app\abstractDataTypes\services\queuePrioritizedAsync.js.map" />
+    <Content Include="src\app\abstractDataTypes\services\sequentialPromiseList.js.map" />
+    <Content Include="src\app\abstractDataTypes\services\sequentialPromiseList.spec.js.map" />
+    <Content Include="src\app\common\common.less" />
+    <Content Include="src\app\common\common.module.js.map" />
+    <Content Include="src\app\common\directives\workSpinner.js.map" />
+    <Content Include="src\app\common\directives\workSpinner.spec.js.map" />
+    <Content Include="src\app\common\enums\formFactor.js.map" />
+    <Content Include="src\app\common\enums\httpStatusCode.js.map" />
+    <Content Include="src\app\common\enums\stateResolutionPriority.js.map" />
+    <Content Include="src\app\common\enums\xhrReadyState.js.map" />
+    <Content Include="src\app\common\filters\formatNumber.js.map" />
+    <Content Include="src\app\common\filters\formatNumber.spec.js.map" />
+    <Content Include="src\app\common\filters\highlight.js.map" />
+    <Content Include="src\app\common\filters\highlight.spec.js.map" />
+    <Content Include="src\app\common\functions\convertObjectToCamelCase.js.map" />
+    <Content Include="src\app\common\functions\fire.js.map" />
+    <Content Include="src\app\common\functions\formDecode.js.map" />
+    <Content Include="src\app\common\functions\formEncode.js.map" />
+    <Content Include="src\app\common\functions\fromCacheOrService.js.map" />
+    <Content Include="src\app\common\functions\getStringFromUrl.js.map" />
+    <Content Include="src\app\common\functions\numeral.js.map" />
+    <Content Include="src\app\common\functions\pathRegExp.js.map" />
+    <Content Include="src\app\common\helpers\uiHelper.js.map" />
+    <Content Include="src\app\common\services\apiEndpointProvider.js.map" />
+    <Content Include="src\app\common\services\apiEndpointProvider.spec.js.map" />
+    <Content Include="src\app\common\services\applicationProvider.js.map" />
+    <Content Include="src\app\common\services\commonStorage.js.map" />
+    <Content Include="src\app\common\services\commonStorage.spec.js.map" />
+    <Content Include="src\app\common\services\dataService.js.map" />
+    <Content Include="src\app\common\services\dataService.spec.js.map" />
+    <Content Include="src\app\common\services\JQuery.js.map" />
+    <Content Include="src\app\common\services\localStorageService.js.map" />
+    <Content Include="src\app\common\services\metadataService.js.map" />
+    <Content Include="src\app\common\services\prioritizedPromisesService.js.map" />
+    <Content Include="src\app\common\services\prioritizedPromisesService.spec.js.map" />
+    <Content Include="src\app\common\services\requestCounter.js.map" />
+    <Content Include="src\app\common\services\requestCounter.spec.js.map" />
+    <Content Include="src\app\common\services\sessionProvider.js.map" />
+    <Content Include="src\app\common\services\sessionStorageProperty.js.map" />
+    <Content Include="src\app\common\services\stateDeactivatorProvider.js.map" />
+    <Content Include="src\app\common\services\stateManagerProvider.js.map" />
+    <Content Include="src\app\common\services\StateManagerProvider.spec.js.map" />
+    <Content Include="src\app\common\services\stateParamsHelper.js.map" />
+    <Content Include="src\app\common\services\stateParamsHelper.spec.js.map" />
+    <Content Include="src\app\common\services\stateResolverProvider.js.map" />
+    <Content Include="src\app\common\services\stateResolverProvider.spec.js.map" />
+    <Content Include="src\app\common\services\storage.js.map" />
+    <Content Include="src\app\common\services\storageProperty.js.map" />
+    <Content Include="src\app\common\services\versionInterceptor.js.map" />
+    <Content Include="src\app\configuration\configuration.module.js.map" />
+    <Content Include="src\app\configuration\services\configurationManager.js.map" />
+    <Content Include="src\app\configuration\services\configurationManager.spec.js.map" />
+    <Content Include="src\app\configuration\services\configurationService.js.map" />
+    <Content Include="src\app\configuration\services\configurationService.spec.js.map" />
+    <Content Include="src\app\docs\controllers\docsController.js.map" />
+    <Content Include="src\app\docs\controllers\docUploadController.js.map" />
+    <Content Include="src\app\docs\controllers\editFolderController.js.map" />
+    <Content Include="src\app\docs\controllers\foldersController.js.map" />
+    <Content Include="src\app\docs\docs.module.js.map" />
+    <Content Include="src\app\docs\docs.states.js.map" />
+    <Content Include="src\app\i18n\filters\translate.js.map" />
+    <Content Include="src\app\i18n\filters\translate.spec.js.map" />
+    <Content Include="src\app\i18n\i18n.module.js.map" />
+    <Content Include="src\app\i18n\services\cultureCodeInterceptor.js.map" />
+    <Content Include="src\app\i18n\services\cultureCodeInterceptor.spec.js.map" />
+    <Content Include="src\app\i18n\services\i18nManager.js.map" />
+    <Content Include="src\app\i18n\services\i18nManager.spec.js.map" />
+    <Content Include="src\app\i18n\services\i18nService.js.map" />
+    <Content Include="src\app\i18n\services\i18nService.spec.js.map" />
+    <Content Include="src\app\i18n\services\numeral.js.map" />
+    <Content Include="src\app\i18n\services\numeral.spec.js.map" />
+    <Content Include="src\app\i18n\services\phrasesProvider.js.map" />
+    <Content Include="src\app\i18n\services\phrasesProvider.spec.js.map" />
+    <Content Include="src\app\security\controllers\loginController.js.map" />
+    <Content Include="src\app\security\controllers\loginController.spec.js.map" />
+    <Content Include="src\app\security\directives\login\login.js.map" />
+    <Content Include="src\app\security\security.module.js.map" />
+    <Content Include="src\app\security\security.states.js.map" />
+    <Content Include="src\app\security\services\authorizationInterceptor.js.map" />
+    <Content Include="src\app\security\services\authorizationInterceptor.spec.js.map" />
+    <Content Include="src\app\security\services\loginRedirectProvider.js.map" />
+    <Content Include="src\app\security\services\loginRedirectProvider.spec.js.map" />
+    <Content Include="src\app\security\services\securityManager.js.map" />
+    <Content Include="src\app\security\services\securityManager.spec.js.map" />
+    <Content Include="src\app\security\services\securityModalService.js.map" />
+    <Content Include="src\app\security\services\securityModalService.spec.js.map" />
+    <Content Include="src\app\security\services\securityService.js.map" />
+    <Content Include="src\app\security\services\securityService.spec.js.map" />
+    <Content Include="src\app\ui\appFooter\appFooter.js.map" />
+    <Content Include="src\app\ui\appFooter\appFooter.less" />
+    <Content Include="src\app\ui\appFooter\appFooter.spec.js.map" />
+    <Content Include="src\app\ui\appFooter\appFooterConfigProvider.js.map" />
+    <Content Include="src\app\ui\appFooter\appFooterManager.js.map" />
+    <Content Include="src\app\ui\appHeader\appHeader.js.map" />
+    <Content Include="src\app\ui\appHeader\appHeader.less" />
+    <Content Include="src\app\ui\appHeader\appHeader.spec.js.map" />
+    <Content Include="src\app\ui\appHeader\appHeaderConfigProvider.js.map" />
+    <Content Include="src\app\ui\formGroup\formGroup.js.map" />
+    <Content Include="src\app\ui\formGroup\formGroup.spec.js.map" />
+    <Content Include="src\app\ui\manualWorkSpinner\manualWorkSpinner.js.map" />
+    <Content Include="src\app\ui\manualWorkSpinner\manualWorkSpinner.spec.js.map" />
+    <Content Include="src\app\ui\modal\modalService.spec.js.map" />
+    <Content Include="src\app\ui\modal\modalServiceProvider.js.map" />
+    <Content Include="src\app\ui\paginatedImageListViewer\paginatedImageListViewer.js.map" />
+    <Content Include="src\app\ui\paginatedImageListViewer\paginatedImageListViewer.less" />
+    <Content Include="src\app\ui\paginatedImageListViewer\paginatedImageListViewer.spec.js.map" />
+    <Content Include="src\app\ui\paginatedListView\pagniatedListView.js.map" />
+    <Content Include="src\app\ui\paginatedListView\pagniatedListView.spec.js.map" />
+    <Content Include="src\app\ui\popover\popover.js.map" />
+    <Content Include="src\app\ui\popover\popover.spec.js.map" />
+    <Content Include="src\app\ui\popover\PopoverService.js.map" />
+    <Content Include="src\app\ui\popover\popoverService.spec.js.map" />
+    <Content Include="src\app\ui\rating\rating.js.map" />
+    <Content Include="src\app\ui\rating\rating.less" />
+    <Content Include="src\app\ui\rating\rating.spec.js.map" />
+    <Content Include="src\app\ui\tiles\tiles.js.map" />
+    <Content Include="src\app\ui\tiles\tiles.less" />
+    <Content Include="src\app\ui\tiles\tiles.spec.js.map" />
+    <Content Include="src\app\ui\tile\tile.js.map" />
+    <Content Include="src\app\ui\tile\tile.less" />
+    <Content Include="src\app\ui\tile\tile.spec.js.map" />
+    <Content Include="src\app\ui\tile\tileConfigsProvider.js.map" />
+    <Content Include="src\app\ui\ui.module.js.map" />
+    <Content Include="src\app\userExperience\controllers\feedbackModalController.js.map" />
+    <Content Include="src\app\userExperience\controllers\feedbackModalController.spec.js.map" />
+    <Content Include="src\app\userExperience\directives\feedbackTile\feedbackTile.js.map" />
+    <Content Include="src\app\userExperience\directives\feedbackTile\feedbackTile.less" />
+    <Content Include="src\app\userExperience\directives\feedbackTile\feedbackTile.spec.js.map" />
+    <Content Include="package.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -179,6 +326,157 @@
     <Content Include="Scripts\jquery-1.6.4.min.js" />
     <Content Include="Scripts\jquery.signalR-2.2.0.js" />
     <Content Include="Scripts\jquery.signalR-2.2.0.min.js" />
+    <Content Include="src\app\abstractDataTypes\abstractDataTypes.module.js" />
+    <Content Include="src\app\abstractDataTypes\controllers\paginatedListController.js" />
+    <Content Include="src\app\abstractDataTypes\services\linkedList.js" />
+    <Content Include="src\app\abstractDataTypes\services\list.js" />
+    <Content Include="src\app\abstractDataTypes\services\list.spec.js" />
+    <Content Include="src\app\abstractDataTypes\services\paginatedList.js" />
+    <Content Include="src\app\abstractDataTypes\services\paginatedList.spec.js" />
+    <Content Include="src\app\abstractDataTypes\services\pagniatedListView.js" />
+    <Content Include="src\app\abstractDataTypes\services\pagniatedListView.spec.js" />
+    <Content Include="src\app\abstractDataTypes\services\pipeAsync.js" />
+    <Content Include="src\app\abstractDataTypes\services\pipePrioritizedAsync.js" />
+    <Content Include="src\app\abstractDataTypes\services\queueAsync.js" />
+    <Content Include="src\app\abstractDataTypes\services\queuePrioritizedAsync.js" />
+    <Content Include="src\app\abstractDataTypes\services\sequentialPromiseList.js" />
+    <Content Include="src\app\abstractDataTypes\services\sequentialPromiseList.spec.js" />
+    <Content Include="src\app\common\common.module.js" />
+    <Content Include="src\app\common\directives\workSpinner.js" />
+    <Content Include="src\app\common\directives\workSpinner.spec.js" />
+    <Content Include="src\app\common\enums\formFactor.js" />
+    <Content Include="src\app\common\enums\httpStatusCode.js" />
+    <Content Include="src\app\common\enums\stateResolutionPriority.js" />
+    <Content Include="src\app\common\enums\xhrReadyState.js" />
+    <Content Include="src\app\common\filters\formatNumber.js" />
+    <Content Include="src\app\common\filters\formatNumber.spec.js" />
+    <Content Include="src\app\common\filters\highlight.js" />
+    <Content Include="src\app\common\filters\highlight.spec.js" />
+    <Content Include="src\app\common\functions\convertObjectToCamelCase.js" />
+    <Content Include="src\app\common\functions\fire.js" />
+    <Content Include="src\app\common\functions\formDecode.js" />
+    <Content Include="src\app\common\functions\formEncode.js" />
+    <Content Include="src\app\common\functions\fromCacheOrService.js" />
+    <Content Include="src\app\common\functions\getStringFromUrl.js" />
+    <Content Include="src\app\common\functions\numeral.js" />
+    <Content Include="src\app\common\functions\pathRegExp.js" />
+    <Content Include="src\app\common\helpers\uiHelper.js" />
+    <Content Include="src\app\common\services\apiEndpointProvider.js" />
+    <Content Include="src\app\common\services\apiEndpointProvider.spec.js" />
+    <Content Include="src\app\common\services\applicationProvider.js" />
+    <Content Include="src\app\common\services\commonStorage.js" />
+    <Content Include="src\app\common\services\commonStorage.spec.js" />
+    <Content Include="src\app\common\services\dataService.js" />
+    <Content Include="src\app\common\services\dataService.spec.js" />
+    <Content Include="src\app\common\services\JQuery.js" />
+    <Content Include="src\app\common\services\localStorageService.js" />
+    <Content Include="src\app\common\services\metadataService.js" />
+    <Content Include="src\app\common\services\prioritizedPromisesService.js" />
+    <Content Include="src\app\common\services\prioritizedPromisesService.spec.js" />
+    <Content Include="src\app\common\services\requestCounter.js" />
+    <Content Include="src\app\common\services\requestCounter.spec.js" />
+    <Content Include="src\app\common\services\sessionProvider.js" />
+    <Content Include="src\app\common\services\sessionStorageProperty.js" />
+    <Content Include="src\app\common\services\stateDeactivatorProvider.js" />
+    <Content Include="src\app\common\services\stateManagerProvider.js" />
+    <Content Include="src\app\common\services\StateManagerProvider.spec.js" />
+    <Content Include="src\app\common\services\stateParamsHelper.js" />
+    <Content Include="src\app\common\services\stateParamsHelper.spec.js" />
+    <Content Include="src\app\common\services\stateResolverProvider.js" />
+    <Content Include="src\app\common\services\stateResolverProvider.spec.js" />
+    <Content Include="src\app\common\services\storage.js" />
+    <Content Include="src\app\common\services\storageProperty.js" />
+    <Content Include="src\app\common\services\versionInterceptor.js" />
+    <Content Include="src\app\configuration\configuration.module.js" />
+    <Content Include="src\app\configuration\services\configurationManager.js" />
+    <Content Include="src\app\configuration\services\configurationManager.spec.js" />
+    <Content Include="src\app\configuration\services\configurationService.js" />
+    <Content Include="src\app\configuration\services\configurationService.spec.js" />
+    <Content Include="src\app\docs\controllers\docsController.js" />
+    <Content Include="src\app\docs\controllers\docUploadController.js" />
+    <Content Include="src\app\docs\controllers\editFolderController.js" />
+    <Content Include="src\app\docs\controllers\foldersController.js" />
+    <Content Include="src\app\docs\docs.module.js" />
+    <Content Include="src\app\docs\docs.states.js" />
+    <Content Include="src\app\docs\views\docs.html" />
+    <Content Include="src\app\docs\views\docsUpload.html" />
+    <Content Include="src\app\docs\views\editFolder.html" />
+    <Content Include="src\app\docs\views\folders.html" />
+    <Content Include="src\app\i18n\filters\translate.js" />
+    <Content Include="src\app\i18n\filters\translate.spec.js" />
+    <Content Include="src\app\i18n\i18n.module.js" />
+    <Content Include="src\app\i18n\services\cultureCodeInterceptor.js" />
+    <Content Include="src\app\i18n\services\cultureCodeInterceptor.spec.js" />
+    <Content Include="src\app\i18n\services\i18nManager.js" />
+    <Content Include="src\app\i18n\services\i18nManager.spec.js" />
+    <Content Include="src\app\i18n\services\i18nService.js" />
+    <Content Include="src\app\i18n\services\i18nService.spec.js" />
+    <Content Include="src\app\i18n\services\numeral.js" />
+    <Content Include="src\app\i18n\services\numeral.spec.js" />
+    <Content Include="src\app\i18n\services\phrasesProvider.js" />
+    <Content Include="src\app\i18n\services\phrasesProvider.spec.js" />
+    <Content Include="src\app\security\controllers\loginController.js" />
+    <Content Include="src\app\security\controllers\loginController.spec.js" />
+    <Content Include="src\app\security\directives\login\login.html" />
+    <Content Include="src\app\security\directives\login\login.js" />
+    <Content Include="src\app\security\partials\login.html" />
+    <Content Include="src\app\security\security.module.js" />
+    <Content Include="src\app\security\security.states.js" />
+    <Content Include="src\app\security\services\authorizationInterceptor.js" />
+    <Content Include="src\app\security\services\authorizationInterceptor.spec.js" />
+    <Content Include="src\app\security\services\loginRedirectProvider.js" />
+    <Content Include="src\app\security\services\loginRedirectProvider.spec.js" />
+    <Content Include="src\app\security\services\securityManager.js" />
+    <Content Include="src\app\security\services\securityManager.spec.js" />
+    <Content Include="src\app\security\services\securityModalService.js" />
+    <Content Include="src\app\security\services\securityModalService.spec.js" />
+    <Content Include="src\app\security\services\securityService.js" />
+    <Content Include="src\app\security\services\securityService.spec.js" />
+    <Content Include="src\app\security\views\login.html" />
+    <Content Include="src\app\security\views\partials\login.html" />
+    <Content Include="src\app\ui\appFooter\appFooter.html" />
+    <Content Include="src\app\ui\appFooter\appFooter.js" />
+    <Content Include="src\app\ui\appFooter\appFooter.spec.js" />
+    <Content Include="src\app\ui\appFooter\appFooterConfigProvider.js" />
+    <Content Include="src\app\ui\appFooter\appFooterManager.js" />
+    <Content Include="src\app\ui\appHeader\appHeader.html" />
+    <Content Include="src\app\ui\appHeader\appHeader.js" />
+    <Content Include="src\app\ui\appHeader\appHeader.spec.js" />
+    <Content Include="src\app\ui\appHeader\appHeaderConfigProvider.js" />
+    <Content Include="src\app\ui\formGroup\formGroup.js" />
+    <Content Include="src\app\ui\formGroup\formGroup.spec.js" />
+    <Content Include="src\app\ui\manualWorkSpinner\manualWorkSpinner.html" />
+    <Content Include="src\app\ui\manualWorkSpinner\manualWorkSpinner.js" />
+    <Content Include="src\app\ui\manualWorkSpinner\manualWorkSpinner.spec.js" />
+    <Content Include="src\app\ui\modal\default.html" />
+    <Content Include="src\app\ui\modal\modalService.spec.js" />
+    <Content Include="src\app\ui\modal\modalServiceProvider.js" />
+    <Content Include="src\app\ui\paginatedImageListViewer\paginatedImageListViewer.html" />
+    <Content Include="src\app\ui\paginatedImageListViewer\paginatedImageListViewer.js" />
+    <Content Include="src\app\ui\paginatedImageListViewer\paginatedImageListViewer.spec.js" />
+    <Content Include="src\app\ui\paginatedListView\pagniatedListView.js" />
+    <Content Include="src\app\ui\paginatedListView\pagniatedListView.spec.js" />
+    <Content Include="src\app\ui\popover\popover.js" />
+    <Content Include="src\app\ui\popover\popover.spec.js" />
+    <Content Include="src\app\ui\popover\PopoverService.js" />
+    <Content Include="src\app\ui\popover\popoverService.spec.js" />
+    <Content Include="src\app\ui\rating\rating.html" />
+    <Content Include="src\app\ui\rating\rating.js" />
+    <Content Include="src\app\ui\rating\rating.spec.js" />
+    <Content Include="src\app\ui\tiles\tiles.html" />
+    <Content Include="src\app\ui\tiles\tiles.js" />
+    <Content Include="src\app\ui\tiles\tiles.spec.js" />
+    <Content Include="src\app\ui\tile\tile.html" />
+    <Content Include="src\app\ui\tile\tile.js" />
+    <Content Include="src\app\ui\tile\tile.spec.js" />
+    <Content Include="src\app\ui\tile\tileConfigsProvider.js" />
+    <Content Include="src\app\ui\ui.module.js" />
+    <Content Include="src\app\userExperience\controllers\feedbackModalController.js" />
+    <Content Include="src\app\userExperience\controllers\feedbackModalController.spec.js" />
+    <Content Include="src\app\userExperience\directives\feedbackTile\feedbackTile.html" />
+    <Content Include="src\app\userExperience\directives\feedbackTile\feedbackTile.js" />
+    <Content Include="src\app\userExperience\directives\feedbackTile\feedbackTile.spec.js" />
+    <Content Include="src\app\userExperience\views\partials\userExperienceModal.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -191,11 +489,200 @@
       <Name>DocsApi</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="src\app\abstractDataTypes\abstractDataTypes.d.ts" />
+    <TypeScriptCompile Include="src\app\abstractDataTypes\abstractDataTypes.module.ts" />
+    <TypeScriptCompile Include="src\app\abstractDataTypes\controllers\paginatedListController.ts" />
+    <TypeScriptCompile Include="src\app\abstractDataTypes\services\linkedList.ts" />
+    <TypeScriptCompile Include="src\app\abstractDataTypes\services\list.spec.ts" />
+    <TypeScriptCompile Include="src\app\abstractDataTypes\services\list.ts" />
+    <TypeScriptCompile Include="src\app\abstractDataTypes\services\paginatedList.spec.ts" />
+    <TypeScriptCompile Include="src\app\abstractDataTypes\services\paginatedList.ts" />
+    <TypeScriptCompile Include="src\app\abstractDataTypes\services\pagniatedListView.spec.ts" />
+    <TypeScriptCompile Include="src\app\abstractDataTypes\services\pagniatedListView.ts" />
+    <TypeScriptCompile Include="src\app\abstractDataTypes\services\pipeAsync.ts" />
+    <TypeScriptCompile Include="src\app\abstractDataTypes\services\pipePrioritizedAsync.ts" />
+    <TypeScriptCompile Include="src\app\abstractDataTypes\services\queueAsync.ts" />
+    <TypeScriptCompile Include="src\app\abstractDataTypes\services\queuePrioritizedAsync.ts" />
+    <TypeScriptCompile Include="src\app\abstractDataTypes\services\sequentialPromiseList.spec.ts" />
+    <TypeScriptCompile Include="src\app\abstractDataTypes\services\sequentialPromiseList.ts" />
+    <TypeScriptCompile Include="src\app\common\common.d.ts" />
+    <TypeScriptCompile Include="src\app\common\common.module.ts" />
+    <TypeScriptCompile Include="src\app\common\directives\workSpinner.spec.ts" />
+    <TypeScriptCompile Include="src\app\common\directives\workSpinner.ts" />
+    <TypeScriptCompile Include="src\app\common\enums\formFactor.ts" />
+    <TypeScriptCompile Include="src\app\common\enums\httpStatusCode.ts" />
+    <TypeScriptCompile Include="src\app\common\enums\stateResolutionPriority.ts" />
+    <TypeScriptCompile Include="src\app\common\enums\xhrReadyState.ts" />
+    <TypeScriptCompile Include="src\app\common\filters\formatNumber.spec.ts" />
+    <TypeScriptCompile Include="src\app\common\filters\formatNumber.ts" />
+    <TypeScriptCompile Include="src\app\common\filters\highlight.spec.ts" />
+    <TypeScriptCompile Include="src\app\common\filters\highlight.ts" />
+    <TypeScriptCompile Include="src\app\common\functions\convertObjectToCamelCase.ts" />
+    <TypeScriptCompile Include="src\app\common\functions\fire.ts" />
+    <TypeScriptCompile Include="src\app\common\functions\formDecode.ts" />
+    <TypeScriptCompile Include="src\app\common\functions\formEncode.ts" />
+    <TypeScriptCompile Include="src\app\common\functions\fromCacheOrService.ts" />
+    <TypeScriptCompile Include="src\app\common\functions\getStringFromUrl.ts" />
+    <TypeScriptCompile Include="src\app\common\functions\numeral.ts" />
+    <TypeScriptCompile Include="src\app\common\functions\pathRegExp.ts" />
+    <TypeScriptCompile Include="src\app\common\helpers\uiHelper.ts" />
+    <TypeScriptCompile Include="src\app\common\services\apiEndpointProvider.spec.ts" />
+    <TypeScriptCompile Include="src\app\common\services\apiEndpointProvider.ts" />
+    <TypeScriptCompile Include="src\app\common\services\applicationProvider.ts" />
+    <TypeScriptCompile Include="src\app\common\services\commonStorage.spec.ts" />
+    <TypeScriptCompile Include="src\app\common\services\commonStorage.ts" />
+    <TypeScriptCompile Include="src\app\common\services\dataService.spec.ts" />
+    <TypeScriptCompile Include="src\app\common\services\dataService.ts" />
+    <TypeScriptCompile Include="src\app\common\services\JQuery.ts" />
+    <TypeScriptCompile Include="src\app\common\services\localStorageService.ts" />
+    <TypeScriptCompile Include="src\app\common\services\metadataService.ts" />
+    <TypeScriptCompile Include="src\app\common\services\prioritizedPromisesService.spec.ts" />
+    <TypeScriptCompile Include="src\app\common\services\prioritizedPromisesService.ts" />
+    <TypeScriptCompile Include="src\app\common\services\requestCounter.spec.ts" />
+    <TypeScriptCompile Include="src\app\common\services\requestCounter.ts" />
+    <TypeScriptCompile Include="src\app\common\services\sessionProvider.ts" />
+    <TypeScriptCompile Include="src\app\common\services\sessionStorageProperty.ts" />
+    <TypeScriptCompile Include="src\app\common\services\stateDeactivatorProvider.ts" />
+    <TypeScriptCompile Include="src\app\common\services\StateManagerProvider.spec.ts" />
+    <TypeScriptCompile Include="src\app\common\services\stateManagerProvider.ts" />
+    <TypeScriptCompile Include="src\app\common\services\stateParamsHelper.spec.ts" />
+    <TypeScriptCompile Include="src\app\common\services\stateParamsHelper.ts" />
+    <TypeScriptCompile Include="src\app\common\services\stateResolverProvider.spec.ts" />
+    <TypeScriptCompile Include="src\app\common\services\stateResolverProvider.ts" />
+    <TypeScriptCompile Include="src\app\common\services\storage.ts" />
+    <TypeScriptCompile Include="src\app\common\services\storageProperty.ts" />
+    <TypeScriptCompile Include="src\app\common\services\versionInterceptor.ts" />
+    <TypeScriptCompile Include="src\app\configuration\configuration.d.ts" />
+    <TypeScriptCompile Include="src\app\configuration\configuration.module.ts" />
+    <TypeScriptCompile Include="src\app\configuration\services\configurationManager.spec.ts" />
+    <TypeScriptCompile Include="src\app\configuration\services\configurationManager.ts" />
+    <TypeScriptCompile Include="src\app\configuration\services\configurationService.spec.ts" />
+    <TypeScriptCompile Include="src\app\configuration\services\configurationService.ts" />
+    <TypeScriptCompile Include="src\app\docs\controllers\docsController.ts" />
+    <TypeScriptCompile Include="src\app\docs\controllers\docUploadController.ts" />
+    <TypeScriptCompile Include="src\app\docs\controllers\editFolderController.ts" />
+    <TypeScriptCompile Include="src\app\docs\controllers\foldersController.ts" />
+    <TypeScriptCompile Include="src\app\docs\docs.d.ts" />
+    <TypeScriptCompile Include="src\app\docs\docs.module.ts" />
+    <TypeScriptCompile Include="src\app\docs\docs.states.ts" />
+    <TypeScriptCompile Include="src\app\docs\services\docService.ts" />
+    <TypeScriptCompile Include="src\app\docs\services\docsManager.ts" />
+    <TypeScriptCompile Include="src\app\docs\services\folderService.ts" />
+    <TypeScriptCompile Include="src\app\i18n\filters\translate.spec.ts" />
+    <TypeScriptCompile Include="src\app\i18n\filters\translate.ts" />
+    <TypeScriptCompile Include="src\app\i18n\i18n.d.ts" />
+    <TypeScriptCompile Include="src\app\i18n\i18n.module.ts" />
+    <TypeScriptCompile Include="src\app\i18n\services\cultureCodeInterceptor.spec.ts" />
+    <TypeScriptCompile Include="src\app\i18n\services\cultureCodeInterceptor.ts" />
+    <TypeScriptCompile Include="src\app\i18n\services\i18nManager.spec.ts" />
+    <TypeScriptCompile Include="src\app\i18n\services\i18nManager.ts" />
+    <TypeScriptCompile Include="src\app\i18n\services\i18nService.spec.ts" />
+    <TypeScriptCompile Include="src\app\i18n\services\i18nService.ts" />
+    <TypeScriptCompile Include="src\app\i18n\services\numeral.spec.ts" />
+    <TypeScriptCompile Include="src\app\i18n\services\numeral.ts" />
+    <TypeScriptCompile Include="src\app\i18n\services\phrasesProvider.spec.ts" />
+    <TypeScriptCompile Include="src\app\i18n\services\phrasesProvider.ts" />
+    <TypeScriptCompile Include="src\app\security\controllers\loginController.spec.ts" />
+    <TypeScriptCompile Include="src\app\security\controllers\loginController.ts" />
+    <TypeScriptCompile Include="src\app\security\directives\login\login.ts" />
+    <TypeScriptCompile Include="src\app\security\security.d.ts" />
+    <TypeScriptCompile Include="src\app\security\security.module.ts" />
+    <TypeScriptCompile Include="src\app\security\security.states.ts" />
+    <TypeScriptCompile Include="src\app\security\services\authorizationInterceptor.spec.ts" />
+    <TypeScriptCompile Include="src\app\security\services\authorizationInterceptor.ts" />
+    <TypeScriptCompile Include="src\app\security\services\loginRedirectProvider.spec.ts" />
+    <TypeScriptCompile Include="src\app\security\services\loginRedirectProvider.ts" />
+    <TypeScriptCompile Include="src\app\security\services\securityManager.spec.ts" />
+    <TypeScriptCompile Include="src\app\security\services\securityManager.ts" />
+    <TypeScriptCompile Include="src\app\security\services\securityModalService.spec.ts" />
+    <TypeScriptCompile Include="src\app\security\services\securityModalService.ts" />
+    <TypeScriptCompile Include="src\app\security\services\securityService.spec.ts" />
+    <TypeScriptCompile Include="src\app\security\services\securityService.ts" />
+    <TypeScriptCompile Include="src\app\telemetry\services\telemetryManager.spec.ts">
+      <DependentUpon>telemetryManager.ts</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\app\telemetry\telemetry.d.ts" />
+    <TypeScriptCompile Include="src\app\telemetry\telemetry.module.ts" />
+    <TypeScriptCompile Include="src\app\telemetry\functions\getWatchersCount.ts" />
+    <TypeScriptCompile Include="src\app\telemetry\functions\printStackTrace.ts" />
+    <TypeScriptCompile Include="src\app\telemetry\services\telemetryManager.ts" />
+    <TypeScriptCompile Include="src\app\telemetry\services\errorRedirectProvider.ts" />
+    <TypeScriptCompile Include="src\app\telemetry\services\features.spec.ts">
+      <DependentUpon>features.ts</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\app\telemetry\services\features.ts" />
+    <TypeScriptCompile Include="src\app\telemetry\services\modernizrService.spec.ts">
+      <DependentUpon>modernizrService.ts</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\app\telemetry\services\modernizrService.ts" />
+    <TypeScriptCompile Include="src\app\telemetry\services\requestProfiler.spec.ts">
+      <DependentUpon>requestProfiler.ts</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\app\telemetry\services\requestProfiler.ts" />
+    <TypeScriptCompile Include="src\app\ui\appFooter\appFooter.spec.ts" />
+    <TypeScriptCompile Include="src\app\ui\appFooter\appFooter.ts" />
+    <TypeScriptCompile Include="src\app\ui\appFooter\appFooterConfigProvider.ts" />
+    <TypeScriptCompile Include="src\app\ui\appFooter\appFooterManager.ts" />
+    <TypeScriptCompile Include="src\app\ui\appHeader\appHeader.spec.ts" />
+    <TypeScriptCompile Include="src\app\ui\appHeader\appHeader.ts" />
+    <TypeScriptCompile Include="src\app\ui\appHeader\appHeaderConfigProvider.ts" />
+    <TypeScriptCompile Include="src\app\ui\formGroup\formGroup.spec.ts" />
+    <TypeScriptCompile Include="src\app\ui\formGroup\formGroup.ts" />
+    <TypeScriptCompile Include="src\app\ui\manualWorkSpinner\manualWorkSpinner.spec.ts" />
+    <TypeScriptCompile Include="src\app\ui\manualWorkSpinner\manualWorkSpinner.ts" />
+    <TypeScriptCompile Include="src\app\ui\modal\modalService.spec.ts" />
+    <TypeScriptCompile Include="src\app\ui\modal\modalServiceProvider.ts" />
+    <TypeScriptCompile Include="src\app\ui\paginatedImageListViewer\paginatedImageListViewer.spec.ts" />
+    <TypeScriptCompile Include="src\app\ui\paginatedImageListViewer\paginatedImageListViewer.ts" />
+    <TypeScriptCompile Include="src\app\ui\paginatedListView\pagniatedListView.spec.ts" />
+    <TypeScriptCompile Include="src\app\ui\paginatedListView\pagniatedListView.ts" />
+    <TypeScriptCompile Include="src\app\ui\popover\popover.spec.ts" />
+    <TypeScriptCompile Include="src\app\ui\popover\popover.ts" />
+    <TypeScriptCompile Include="src\app\ui\popover\popoverService.spec.ts" />
+    <TypeScriptCompile Include="src\app\ui\popover\PopoverService.ts" />
+    <TypeScriptCompile Include="src\app\ui\rating\rating.spec.ts" />
+    <TypeScriptCompile Include="src\app\ui\rating\rating.ts" />
+    <TypeScriptCompile Include="src\app\ui\tiles\tiles.spec.ts" />
+    <TypeScriptCompile Include="src\app\ui\tiles\tiles.ts" />
+    <TypeScriptCompile Include="src\app\ui\tile\tile.spec.ts" />
+    <TypeScriptCompile Include="src\app\ui\tile\tile.ts" />
+    <TypeScriptCompile Include="src\app\ui\tile\tileConfigsProvider.ts" />
+    <TypeScriptCompile Include="src\app\ui\ui.d.ts" />
+    <TypeScriptCompile Include="src\app\ui\ui.module.ts" />
+    <TypeScriptCompile Include="src\app\userExperience\controllers\feedbackModalController.spec.ts" />
+    <TypeScriptCompile Include="src\app\userExperience\controllers\feedbackModalController.ts" />
+    <TypeScriptCompile Include="src\app\userExperience\directives\feedbackTile\feedbackTile.spec.ts" />
+    <TypeScriptCompile Include="src\app\userExperience\directives\feedbackTile\feedbackTile.ts" />
+    <TypeScriptCompile Include="src\app\userExperience\services\exceptionHandler.spec.ts">
+      <DependentUpon>exceptionHandler.ts</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\app\userExperience\services\exceptionHandler.ts" />
+    <TypeScriptCompile Include="src\app\userExperience\services\userExperienceChatHub.ts" />
+    <TypeScriptCompile Include="src\app\userExperience\services\userExperienceManager.spec.ts">
+      <DependentUpon>userExperienceManager.ts</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\app\userExperience\services\userExperienceManager.ts" />
+    <TypeScriptCompile Include="src\app\userExperience\services\userExperienceModalService.spec.ts">
+      <DependentUpon>userExperienceModalService.ts</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\app\userExperience\services\userExperienceModalService.ts" />
+    <TypeScriptCompile Include="src\app\userExperience\services\userExperienceService.spec.ts">
+      <DependentUpon>userExperienceService.ts</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\app\userExperience\services\userExperienceService.ts" />
+    <TypeScriptCompile Include="src\app\userExperience\userExperience.d.ts" />
+    <TypeScriptCompile Include="src\app\userExperience\userExperience.module.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\app\docs\directives\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ProjectExtensions>

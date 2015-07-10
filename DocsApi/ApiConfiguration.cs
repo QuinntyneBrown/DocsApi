@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Web.Http;
+using Owin;
 
 namespace DocsApi
 {
     public class ApiConfiguration: Common.Web.ApiConfiguration
     {
+        public new static void Install(HttpConfiguration config, IAppBuilder app)
+        {
+            Common.Web.ApiConfiguration.Install(config,app);
+        }
     }
 }
