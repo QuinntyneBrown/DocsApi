@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocsApi", "DocsApi\DocsApi.csproj", "{F4BC2760-86B6-4843-BF29-F429DA402B2A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocsApi.IISHost", "DocsApi.IISHost\DocsApi.IISHost.csproj", "{2B892831-8C31-4045-9974-D8365ED8BC17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocsApi.Tests", "DocsApi.Tests\DocsApi.Tests.csproj", "{2A53C950-2EBA-4B17-9F50-8CD843575B8C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F4BC2760-86B6-4843-BF29-F429DA402B2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4BC2760-86B6-4843-BF29-F429DA402B2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4BC2760-86B6-4843-BF29-F429DA402B2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4BC2760-86B6-4843-BF29-F429DA402B2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B892831-8C31-4045-9974-D8365ED8BC17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B892831-8C31-4045-9974-D8365ED8BC17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B892831-8C31-4045-9974-D8365ED8BC17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B892831-8C31-4045-9974-D8365ED8BC17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A53C950-2EBA-4B17-9F50-8CD843575B8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A53C950-2EBA-4B17-9F50-8CD843575B8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A53C950-2EBA-4B17-9F50-8CD843575B8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A53C950-2EBA-4B17-9F50-8CD843575B8C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
